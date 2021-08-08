@@ -39,19 +39,19 @@ let calculateTotals = ()=>{
     let extraAadiBrassAmt = getAmount(extraAadiBrass,'aadi');
     let extraTekaBrassAmt = getAmount(extraTekaBrass,'teka');
 
-    $('.regularBrass').text(Number(minBrass).toFixed(0));
+    $('.regularBrass').text(Number(minBrass).toFixed(2));
     $('.regularBrassAmt').text(regularBrassAmt);
 
-    $('.extraPlateBrass').text(Number( extraPlateBrass ).toFixed(0));
+    $('.extraPlateBrass').text(Number( extraPlateBrass ).toFixed(2));
     $('.extraPlateBrassAmt').text(extraPlateBrassAmt);
 
-    $('.extraAadiBrass').text(Number( extraAadiBrass ).toFixed(0));
+    $('.extraAadiBrass').text(Number( extraAadiBrass ).toFixed(2));
     $('.extraAadiBrassAmt').text(extraAadiBrassAmt);
 
-    $('.extraTekaBrass').text(Number( extraTekaBrass ).toFixed(0));
+    $('.extraTekaBrass').text(Number( extraTekaBrass ).toFixed(2));
     $('.extraTekaBrassAmt').text(extraTekaBrassAmt);
 
-    let gTotal = Number(regularBrassAmt + extraPlateBrassAmt + extraAadiBrassAmt + extraTekaBrassAmt).toFixed(0);
+    let gTotal = Number(regularBrassAmt + extraPlateBrassAmt + extraAadiBrassAmt + extraTekaBrassAmt).toFixed(2);
     $('#total').val(gTotal);
     $('.gTotalAmt').text(gTotal);
 };
