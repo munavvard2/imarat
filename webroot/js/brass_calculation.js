@@ -19,9 +19,11 @@ let calculateTotals = ()=>{
     let totalAadi   = Number($('#aadi').val());
     let totalTeka   = Number($('#teka').val());
 
-    let plateBrass = totalPlates / 16;
-    let aadiBrass = totalAadi / 40;
-    let tekaBrass = totalTeka / 16;
+    let plateBrass  = totalPlates / 16;
+    let aadiBrass   = totalAadi / 40;
+    let tekaBrass   = totalTeka / 16;
+
+    let majuri      = Number(((plateBrass + aadiBrass + tekaBrass)  / 3 ) * 80);
 
     let minBrass = Math.min(plateBrass,aadiBrass,tekaBrass);
 
@@ -51,7 +53,9 @@ let calculateTotals = ()=>{
     $('.extraTekaBrass').text(Number( extraTekaBrass ).toFixed(2));
     $('.extraTekaBrassAmt').text(extraTekaBrassAmt);
 
-    let gTotal = Number(regularBrassAmt + extraPlateBrassAmt + extraAadiBrassAmt + extraTekaBrassAmt).toFixed(2);
+    $('.majuriAmt').text(majuri.toFixed(2));
+
+    let gTotal = Number(regularBrassAmt + extraPlateBrassAmt + extraAadiBrassAmt + extraTekaBrassAmt + majuri).toFixed(2);
     $('#total').val(gTotal);
     $('.gTotalAmt').text(gTotal);
 };

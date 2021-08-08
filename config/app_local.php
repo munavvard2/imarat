@@ -45,7 +45,7 @@ return [
             //'port' => 'non_standard_port_number',
 
             'username' => 'root',
-            'password' => 'imaratjuned',
+            'password' => '',
 
             'database' => 'imarat_db',
             /*

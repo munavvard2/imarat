@@ -73,6 +73,11 @@ echo $this->Html->script('brass_calculation');
                                     <td><span class="extraTekaBrassAmt">&nbsp;</span></td>
                                 </tr>
                                 <tr>
+                                    <td>Majuri</td>
+                                    <td><span class="">&nbsp;</span></td>
+                                    <td><span class="majuriAmt">&nbsp;</span></td>
+                                </tr>
+                                <tr>
                                     <td><b>Grand Total</b></td>
                                     <td><span class="">&nbsp;</span></td>
                                     <td><span class="gTotalAmt">&nbsp;</span></td>
