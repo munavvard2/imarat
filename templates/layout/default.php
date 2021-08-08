@@ -15,7 +15,7 @@
  *
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Imarat Centring';
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,25 +30,30 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
-
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake','custom']) ?>
+    <?= $this->Html->css('jquery-ui/jquery-ui.min.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->Html->script('jquery-3.6.0.min') ?>
+    <?= $this->Html->script('jquery-ui/jquery-ui.min.js') ?>
+    <?= $this->Html->script('moment.js') ?>
 </head>
 <body>
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+            <a href="<?= $this->Url->build('/') ?>"><span>Imarat</span> Centring</a>
         </div>
         <div class="top-nav-links">
             <?php
-                if($this->Identity->isLoggedIn()){
-                    echo $this->Html->link('My Profile','/myprofile');
-                    echo $this->Html->link('Logout','/logout');
+            $route =  $this->getRequest()->getParam('_matchedRoute');
+            if($this->Identity->isLoggedIn()){
+                    echo $this->Html->link('Bills','/bills',['class'=> ($route == "/bills")?'active':'' ]);
+                    echo $this->Html->link('My Profile','/myprofile',['class'=> ($route == "/myprofile")?'active':'' ]);
+                    echo $this->Html->link('Logout','/logout',['class'=> ($route == "/logout")?'active':'' ]);
                 }
                 else{
-                    echo $this->Html->link('Login','/login');
+                    echo $this->Html->link('Login','/login',['class'=> ($route == "/login")?'active':'' ]);
                 }
             ?>
 <!--            <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>-->

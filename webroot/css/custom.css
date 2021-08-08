@@ -1,0 +1,23 @@
+.top-nav-links a:after {
+    content: "|";
+    margin-right: 10px;
+    margin-left: 20px;
+    color: #606c76 !important;
+}
+.top-nav-links a:last-child:after {
+    display: none;
+}
+.side-nav a:hover, .top-nav-links a:hover, th a:hover, .actions a:hover,
+.top-nav-links a.active{
+    color: #d33c43;
+}
+
+.button-block{
+    width: 100%;
+}
+.text-right{
+    text-align: right;
+}
+.text-right-table td{
+    text-align: right;
+}
