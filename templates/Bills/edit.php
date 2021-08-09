@@ -3,7 +3,6 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Bill $bill
  */
-echo $this->Html->script('brass_calculation');
 ?>
 <div class="row">
     <aside class="column">
@@ -31,6 +30,11 @@ echo $this->Html->script('brass_calculation');
                         <div class="column"><?= $this->Form->control('from_date', ['type'=>'text','class'=>'datepicker','value'=>$bill->from_date->format('d/m/Y')]); ?></div>
                         <div class="column"><?= $this->Form->control('to_date', ['type'=>'text','class'=>'datepicker','value'=>$bill->to_date->format('d/m/Y')]); ?></div>
                         <div class="column"><?= $this->Form->control('days',['class'=>'text-right']); ?></div>
+                        <div class="column"><?= $this->Form->control('brass_price',['class'=>'text-right','label'=>'Brass ₹']); ?></div>
+                        <div class="column"><?= $this->Form->control('extra_plate_price',['class'=>'text-right','label'=>'Plate ₹']); ?></div>
+                        <div class="column"><?= $this->Form->control('extra_aadi_price',['class'=>'text-right','label'=>'Aadi/Teka ₹']); ?></div>
+                        <?= $this->Form->control('extra_teka_price',['type'=>'hidden']); ?>
+                        <?php $this->Form->unlockField('extra_teka_price'); ?>
                     </div>
                     <div class="row">
                         <div class="column-10">
@@ -75,7 +79,10 @@ echo $this->Html->script('brass_calculation');
                                 <tr>
                                     <td>Majuri</td>
                                     <td><span class="">&nbsp;</span></td>
-                                    <td><span class="majuriAmt">&nbsp;</span></td>
+                                    <td><span class="majuriAmt">&nbsp;</span>
+                                        <?= $this->Form->control('majuri',['type'=>'hidden','class'=>'majuriAmt']) ?>
+                                        <?php $this->Form->unlockField('majuri'); ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td><b>Grand Total</b></td>
@@ -99,3 +106,22 @@ echo $this->Html->script('brass_calculation');
             </div>
         </div>
 </div>
+
+<script>
+    let priceConfig = {
+        brass: () => {
+            // return 33.33;
+            return parseFloat($('#brass-price').val()) / 15;
+        },
+        plate: () => {
+            return parseFloat($('#extra-plate-price').val()) / 15;
+        },
+        aadi: () => {
+            return parseFloat($('#extra-aadi-price').val()) / 15;
+        },
+        teka: () => {
+            return parseFloat($('#extra-teka-price').val()) / 15;
+        },
+    };
+</script>
+<?php echo $this->Html->script('brass_calculation'); ?>

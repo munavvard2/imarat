@@ -25,6 +25,13 @@ use Cake\ORM\Entity;
  * @property int $created_by
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *  @property string|null $majuri
+ *  @property string|null $brass_price
+ *  @property string|null $extra_plate_price
+ *  @property string|null $extra_aadi_price
+ * @property string|null $extra_teka_price
+ *
+ *
  */
 class Bill extends Entity
 {
@@ -54,5 +61,10 @@ class Bill extends Entity
         'created_by' => true,
         'created' => true,
         'modified' => true,
+        'brass_price'=>true,
+        'extra_plate_price'=>true,
+        'extra_aadi_price'=>true,
+        'extra_teka_price'=>true,
+        'majuri'=>true
     ];
 }

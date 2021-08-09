@@ -1,11 +1,5 @@
-let priceConfig = {
-    brass:33.333,
-    plate:16.67,
-    aadi:11.67,
-    teka:11.67,
-};
 let getAmount = (brass,type)=>{
-    return Math.round(brass * priceConfig[type] * Number($('#days').val()) );
+    return Math.round(brass * priceConfig[type]() * Number($('#days').val()) );
 }
 let calculateDays = ()=>{
     let from_date   = moment($('#from-date').val(),'DD/MM/YYYY');
@@ -71,5 +65,11 @@ $(function ($){
     $('.bills.form form input').on('change keyup',function (event){
         calculateTotals();
     });
+
+    $('#extra-aadi-price').on('keyup',function (event){
+        $('#extra-teka-price').val($(this).val());
+    });
+
+
     calculateTotals();
 });
