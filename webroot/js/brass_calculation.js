@@ -1,22 +1,7 @@
 let getAmount = (brass,type)=>{
     let days = Number($('#days').val());
-    days = days % 7.5 > 2 ? (days - (days % 7.5)) + 7.5 : (days - (days % 7.5));
-    // 15 => 15
-    // 16 => 15
-    // 17 => 15
-    // 18 => 15 + 7.5
-    // 19 => 15 + 7.5
-    // 20 => 15 + 7.5
-    // 21 => 15 + 7.5
-    // 22 => 15 + 7.5
-    // 23 => 22.5
-    // 24 => 22.5
-    // 25 => 22.5 + 7.5 = 30
-    // 26 => 30
-    // 27 => 30
-    // 28 => 30
-    // 29 => 30
-    // 30 => 30
+    // days = days % 27 > 2 ? days : (days - (days % 7.5));
+    // console.log(days);
     return Math.round(brass * priceConfig[type]() * days );
 }
 let calculateDays = ()=>{
@@ -88,6 +73,7 @@ $(function ($){
         $('#extra-teka-price').val($(this).val());
     });
 
+    $('.')
 
     calculateTotals();
 });
